@@ -2701,8 +2701,8 @@ func (s *OssutilCommandSuite) TestBatchCPObjectWithInvalidIncludeExclude(c *C) {
 	// download test with --meta, --acl
 	cmdline = []string{"ossutil", "cp", bucketStr, downdir, "-rf", "--meta", "Cache-Control:no-cache"}
 	showElapse, err = s.rawCPWithFilter(args, true, true, false, DefaultBigFileThreshold, CheckpointDir, cmdline, "Cache-Control:no-cache", "")
-	c.Assert(showElapse, Equals, false)
-	c.Assert(err.Error() == "No need to set meta for download", Equals, true)
+	c.Assert(showElapse, Equals, true)
+	//c.Assert(err.Error() == "No need to set meta for download", Equals, true)
 
 	cmdline = []string{"ossutil", "cp", bucketStr, downdir, "-rf", "--acl", "public-read"}
 	showElapse, err = s.rawCPWithFilter(args, true, true, false, DefaultBigFileThreshold, CheckpointDir, cmdline, "", "public-read")
@@ -2834,8 +2834,8 @@ func (s *OssutilCommandSuite) TestBatchCPObjectWithInvalidIncludeExcludeEqual(c 
 	// download test with --meta, --acl
 	cmdline = []string{"ossutil", "cp", bucketStr, downdir, "-rf", "--meta", "Cache-Control:no-cache"}
 	showElapse, err = s.rawCPWithFilter(args, true, true, false, DefaultBigFileThreshold, CheckpointDir, cmdline, "Cache-Control:no-cache", "")
-	c.Assert(showElapse, Equals, false)
-	c.Assert(err.Error() == "No need to set meta for download", Equals, true)
+	c.Assert(showElapse, Equals, true)
+	//c.Assert(err.Error() == "No need to set meta for download", Equals, true)
 
 	cmdline = []string{"ossutil", "cp", bucketStr, downdir, "-rf", "--acl", "public-read"}
 	showElapse, err = s.rawCPWithFilter(args, true, true, false, DefaultBigFileThreshold, CheckpointDir, cmdline, "", "public-read")
